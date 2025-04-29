@@ -7,7 +7,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key-here'  # Change this to a secure secret key
 csrf = CSRFProtect(app)
 
-CSV_FILE = 'data.csv'
+INSTANCE_DIR = '/tmp'
+CSV_FILE = os.path.join(INSTANCE_DIR, 'data.csv')
 
 def phone_exists(phone_number):
     if not os.path.exists(CSV_FILE):
